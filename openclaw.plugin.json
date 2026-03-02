@@ -79,6 +79,10 @@
         "type": "string",
         "description": "Base URL for LLM capture judgment (e.g. http://localhost:3000). The plugin appends /v1/chat/completions automatically."
       },
+      "captureLlmApiKey": {
+        "type": "string",
+        "description": "API key for LLM capture judgment endpoint (if different from gateway auth)"
+      },
       "retrieval": {
         "type": "object",
         "additionalProperties": false,
@@ -261,6 +265,11 @@
       "label": "Capture Assistant Messages",
       "help": "Also auto-capture assistant messages (default false to reduce memory pollution)",
       "advanced": true
+    },
+    "captureLlmApiKey": {
+      "label": "Capture LLM API Key",
+      "sensitive": true,
+      "help": "API key for the LLM capture judgment endpoint"
     },
     "retrieval.mode": {
       "label": "Retrieval Mode",

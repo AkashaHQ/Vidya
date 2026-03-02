@@ -26,6 +26,10 @@ A memory plugin for [OpenClaw](https://github.com/openclaw/openclaw) that gives 
 
 ## Quick Start
 
+> **⚠️ Upgrading from pre-1.0.1:** The plugin id changed from `memory-lancedb-voyage` to `vidya`. Update your `openclaw.json`:
+> - Rename `plugins.entries.memory-lancedb-voyage` to `plugins.entries.vidya`
+> - Update `plugins.slots.memory` from `"memory-lancedb-voyage"` to `"vidya"`
+
 ### 1. Install
 
 **Option A — OpenClaw CLI** (recommended):
@@ -36,16 +40,7 @@ openclaw plugins install @akashahq/vidya
 
 This handles downloading, placement in `~/.openclaw/extensions/`, and config scaffolding automatically.
 
-**Option B — Manual npm install**:
-
-```bash
-cd ~/.openclaw/extensions
-npm install @akashahq/vidya --prefix vidya
-```
-
-> **Important:** The extension must be directly under `~/.openclaw/extensions/`, not nested inside a `node_modules/` subfolder. OpenClaw only scans top-level entries in the extensions directory.
-
-**Option C — git clone** (for development):
+**Option B — git clone** (for development):
 
 ```bash
 cd ~/.openclaw/extensions
@@ -85,6 +80,34 @@ Add to your `openclaw.json`:
     }
   }
 }
+```
+
+You can also configure via the OpenClaw gateway API:
+
+```
+gateway(action="config.patch", raw=JSON.stringify({
+  plugins: {
+    slots: { memory: "vidya" },
+    allow: ["vidya"],  // add to allowlist
+    entries: {
+      vidya: {
+        enabled: true,
+        config: {
+          embedding: { apiKey: "${VOYAGE_API_KEY}", model: "voyage-3-large" },
+          autoCapture: true,
+          autoRecall: true,
+          retrieval: { mode: "hybrid", rerank: "cross-encoder" }
+        }
+      }
+    }
+  }
+}))
+```
+
+Or via CLI:
+
+```bash
+openclaw config patch '{"plugins":{"slots":{"memory":"vidya"},"entries":{"vidya":{"enabled":true,"config":{"embedding":{"apiKey":"${VOYAGE_API_KEY}","model":"voyage-3-large"}}}}}}'
 ```
 
 ### 3. Set API Key
