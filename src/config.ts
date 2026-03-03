@@ -70,8 +70,14 @@ const VALID_PROVIDERS = new Set(["voyage", "openai", "jina"]);
 
 // Embedding model dimensions by provider
 const EMBEDDING_DIMENSIONS: Record<string, number> = {
-  // Voyage AI
+  // Voyage AI — v4 series (MoE, shared embedding space)
+  "voyage-4-large": 1024,
+  "voyage-4": 1024,
+  "voyage-4-lite": 1024,
+  // Voyage AI — v3 series
   "voyage-3-large": 1024,
+  "voyage-3.5": 1024,
+  "voyage-3.5-lite": 1024,
   "voyage-3": 1024,
   "voyage-3-lite": 512,
   "voyage-code-3": 1024,
@@ -231,7 +237,7 @@ export const memoryConfigSchema = {
         bm25Weight: typeof ret.bm25Weight === "number" ? ret.bm25Weight : 0.3,
         minScore: typeof ret.minScore === "number" ? ret.minScore : 0.3,
         rerank: (ret.rerank === "lightweight" || ret.rerank === "none") ? ret.rerank : "cross-encoder",
-        rerankModel: typeof ret.rerankModel === "string" ? ret.rerankModel : "rerank-2",
+        rerankModel: typeof ret.rerankModel === "string" ? ret.rerankModel : "rerank-2.5",
         candidatePoolSize: typeof ret.candidatePoolSize === "number" ? ret.candidatePoolSize : 20,
         recencyHalfLifeDays: typeof ret.recencyHalfLifeDays === "number" ? ret.recencyHalfLifeDays : 14,
         recencyWeight: typeof ret.recencyWeight === "number" ? ret.recencyWeight : 0.10,

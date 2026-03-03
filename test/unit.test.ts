@@ -167,7 +167,7 @@ describe("Config Parser (memoryConfigSchema.parse)", () => {
     assert.equal(cfg.retrieval.bm25Weight, 0.3);
     assert.equal(cfg.retrieval.minScore, 0.3);
     assert.equal(cfg.retrieval.rerank, "cross-encoder");
-    assert.equal(cfg.retrieval.rerankModel, "rerank-2");
+    assert.equal(cfg.retrieval.rerankModel, "rerank-2.5");
     assert.equal(cfg.retrieval.candidatePoolSize, 20);
     assert.equal(cfg.retrieval.recencyHalfLifeDays, 14);
     assert.equal(cfg.retrieval.recencyWeight, 0.10);
@@ -2267,7 +2267,7 @@ describe("MemoryRetriever (mocked store + embedder)", () => {
       ...DEFAULT_RETRIEVAL_CONFIG,
       mode: "hybrid",
       rerank: "cross-encoder",
-      rerankModel: "rerank-2",
+      rerankModel: "rerank-2.5",
       hardMinScore: 0.1,
       minScore: 0.1,
     }, "voyage-test-key");

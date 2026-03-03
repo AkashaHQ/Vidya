@@ -355,7 +355,7 @@ describe("Reranking", () => {
     const retrieverWithRerank = createRetriever(store, embedder, {
       ...DEFAULT_RETRIEVAL_CONFIG,
       rerank: "cross-encoder",
-      rerankModel: "rerank-2",
+      rerankModel: "rerank-2.5",
       hardMinScore: 0.05,
       minScore: 0.05,
       filterNoise: false,
