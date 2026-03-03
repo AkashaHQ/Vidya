@@ -58,6 +58,7 @@ Add to your `openclaw.json`:
 ```json
 {
   "plugins": {
+    "allow": ["vidya"],
     "slots": {
       "memory": "vidya"
     },
@@ -81,6 +82,8 @@ Add to your `openclaw.json`:
   }
 }
 ```
+
+> **Note:** `plugins.allow` is OpenClaw's plugin allowlist. Plugins not listed here won't be loaded even if they exist in `extensions/`. Add `"vidya"` to the array alongside any other plugins you're already using.
 
 You can also configure via the OpenClaw gateway API:
 
