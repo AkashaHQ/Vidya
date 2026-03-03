@@ -13,7 +13,7 @@ A memory plugin for [OpenClaw](https://github.com/openclaw/openclaw) that gives 
 
 - **Hybrid Search** — Vector similarity + BM25 keyword search fused via Reciprocal Rank Fusion (RRF)
 - **Multi-Provider Embeddings** — Voyage AI, OpenAI, or Jina AI embeddings with a single config switch
-- **Voyage AI Reranking** — Cross-encoder reranking (`rerank-2`) for high-quality retrieval
+- **Voyage AI Reranking** — Cross-encoder reranking (`rerank-2.5`) for high-quality retrieval
 - **Multi-Scope Isolation** — Separate memory spaces per agent, project, or user with access control
 - **Auto-Capture** — Automatically stores important information from conversations using LLM judgment (with heuristic fallback)
 - **Auto-Recall** — Injects relevant memories into agent context before each turn
@@ -161,7 +161,7 @@ Vidya supports three embedding providers. Set `embedding.provider` in your confi
 }
 ```
 
-Models: `voyage-3-large` (1024d), `voyage-3` (1024d), `voyage-3-lite` (512d), `voyage-code-3` (1024d)
+Models: `voyage-4-large` (1024d), `voyage-4` (1024d), `voyage-4-lite` (1024d), `voyage-3-large` (1024d), `voyage-3` (1024d), `voyage-3-lite` (512d), `voyage-code-3` (1024d)
 
 Voyage supports task-aware embeddings (`query` vs `document` input types) and cross-encoder reranking via the same API key.
 

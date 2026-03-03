@@ -58,7 +58,7 @@ export const DEFAULT_RETRIEVAL_CONFIG: RetrievalConfig = {
   recencyHalfLifeDays: 14,
   recencyWeight: 0.10,
   filterNoise: true,
-  rerankModel: "rerank-2",
+  rerankModel: "rerank-2.5",
   lengthNormAnchor: 500,
   hardMinScore: 0.35,
   timeDecayHalfLifeDays: 60,
@@ -231,7 +231,7 @@ export class MemoryRetriever {
     if (this.config.rerank === "cross-encoder" && this.voyageApiKey) {
       try {
         const documents = results.map(r => r.entry.text);
-        const model = this.config.rerankModel || "rerank-2";
+        const model = this.config.rerankModel || "rerank-2.5";
 
         const controller = new AbortController();
         const timeout = setTimeout(() => controller.abort(), 5000);
