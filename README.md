@@ -68,7 +68,7 @@ Add to your `openclaw.json`:
         "config": {
           "embedding": {
             "apiKey": "${VOYAGE_API_KEY}",
-            "model": "voyage-3-large"
+            "model": "voyage-4-large"
           },
           "autoCapture": true,
           "autoRecall": true,
@@ -96,7 +96,7 @@ gateway(action="config.patch", raw=JSON.stringify({
       vidya: {
         enabled: true,
         config: {
-          embedding: { apiKey: "${VOYAGE_API_KEY}", model: "voyage-3-large" },
+          embedding: { apiKey: "${VOYAGE_API_KEY}", model: "voyage-4-large" },
           autoCapture: true,
           autoRecall: true,
           retrieval: { mode: "hybrid", rerank: "cross-encoder" }
@@ -110,7 +110,7 @@ gateway(action="config.patch", raw=JSON.stringify({
 Or via CLI:
 
 ```bash
-openclaw config patch '{"plugins":{"slots":{"memory":"vidya"},"entries":{"vidya":{"enabled":true,"config":{"embedding":{"apiKey":"${VOYAGE_API_KEY}","model":"voyage-3-large"}}}}}}'
+openclaw config patch '{"plugins":{"slots":{"memory":"vidya"},"entries":{"vidya":{"enabled":true,"config":{"embedding":{"apiKey":"${VOYAGE_API_KEY}","model":"voyage-4-large"}}}}}}'
 ```
 
 ### 3. Set API Key
@@ -156,7 +156,7 @@ Vidya supports three embedding providers. Set `embedding.provider` in your confi
   "embedding": {
     "provider": "voyage",
     "apiKey": "${VOYAGE_API_KEY}",
-    "model": "voyage-3-large"
+    "model": "voyage-4-large"
   }
 }
 ```
