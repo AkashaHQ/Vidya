@@ -1,6 +1,6 @@
 {
   "name": "@akashahq/vidya",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Vidya — Hybrid memory plugin for OpenClaw agents. LanceDB vector store + Voyage AI embedding/rerank + BM25 keyword search.",
   "type": "module",
   "main": "dist/index.js",
